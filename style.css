@@ -2297,7 +2297,6 @@ img {
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-size: 24px;
   animation: rl-float 3s infinite ease-in-out;
 }
 

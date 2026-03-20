@@ -1401,16 +1401,6 @@
     }
 
     launcher.addEventListener('click', launch);
-
-    // Initial Badge (randomly changes for fun)
-    if (badge) {
-      const setBadge = () => {
-        badge.textContent = Math.floor(Math.random() * 5) + 1;
-        badge.style.opacity = '1';
-      };
-      setTimeout(setBadge, 2000);
-      setInterval(setBadge, 12000);
-    }
   })();
 
 })();
