@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bharath Raj M — Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Bharath Raj M — Computer Science Engineer specializing in DSA, Mobile App Development, and Full-Stack Web Technologies." />
+  <meta name="keywords" content="Bharath Raj M, Developer, Portfolio, Java, Kotlin, MERN, Full Stack" />
+  <meta name="author" content="Bharath Raj M" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="scroll-stack.css" />
+</head>
+
+<body>
+
+  <!-- ═══ SPACE BACKGROUND CANVAS ═══ -->
+  <canvas id="space-canvas"></canvas>
+
+  <!-- ═══ PILL NAVBAR ═══ -->
+  <div class="pill-nav-container">
+    <nav class="pill-nav" aria-label="Primary"
+      style="--base: #000000; --pill-bg: #ffffff; --hover-text: #ffffff; --pill-text: #000000;">
+      <a class="pill-logo" href="#hero" aria-label="Home" id="pill-logo"
+        style="width: auto; padding: 0 16px; font-family: var(--font-mono); color: var(--gold); font-weight: bold; font-size: 1.2rem; text-decoration: none;">
+        <span id="pill-logo-text" style="display:inline-block;">&lt;BRM/&gt;</span>
+      </a>
+
+      <div class="pill-nav-items desktop-only" id="pill-nav-items">
+        <ul class="pill-list" role="menubar">
+          <li role="none">
+            <a role="menuitem" href="#hero" class="pill is-active" aria-label="Home">
+              <span class="hover-circle" aria-hidden="true"></span>
+              <span class="label-stack">
+                <span class="pill-label">Home</span>
+                <span class="pill-label-hover" aria-hidden="true">Home</span>
+              </span>
+            </a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#about" class="pill" aria-label="About">
+              <span class="hover-circle" aria-hidden="true"></span>
+              <span class="label-stack">
+                <span class="pill-label">About</span>
+                <span class="pill-label-hover" aria-hidden="true">About</span>
+              </span>
+            </a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#projects" class="pill" aria-label="Projects">
+              <span class="hover-circle" aria-hidden="true"></span>
+              <span class="label-stack">
+                <span class="pill-label">Projects</span>
+                <span class="pill-label-hover" aria-hidden="true">Projects</span>
+              </span>
+            </a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#skills" class="pill" aria-label="Skills">
+              <span class="hover-circle" aria-hidden="true"></span>
+              <span class="label-stack">
+                <span class="pill-label">Skills</span>
+                <span class="pill-label-hover" aria-hidden="true">Skills</span>
+              </span>
+            </a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#internships" class="pill" aria-label="Experience">
+              <span class="hover-circle" aria-hidden="true"></span>
+              <span class="label-stack">
+                <span class="pill-label">Experience</span>
+                <span class="pill-label-hover" aria-hidden="true">Experience</span>
+              </span>
+            </a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#certifications" class="pill" aria-label="Certs">
+              <span class="hover-circle" aria-hidden="true"></span>
+              <span class="label-stack">
+                <span class="pill-label">Certs</span>
+                <span class="pill-label-hover" aria-hidden="true">Certs</span>
+              </span>
+            </a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#contact" class="pill" aria-label="Contact">
+              <span class="hover-circle" aria-hidden="true"></span>
+              <span class="label-stack">
+                <span class="pill-label">Contact</span>
+                <span class="pill-label-hover" aria-hidden="true">Contact</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="mobile-menu-button mobile-only" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu-popover mobile-only" id="mobile-menu-popover"
+      style="--base: #000000; --pill-bg: #ffffff; --hover-text: #ffffff; --pill-text: #000000;">
+      <ul class="mobile-menu-list">
+        <li><a href="#hero" class="mobile-menu-link is-active">Home</a></li>
+        <li><a href="#about" class="mobile-menu-link">About</a></li>
+        <li><a href="#projects" class="mobile-menu-link">Projects</a></li>
+        <li><a href="#skills" class="mobile-menu-link">Skills</a></li>
+        <li><a href="#internships" class="mobile-menu-link">Experience</a></li>
+        <li><a href="#certifications" class="mobile-menu-link">Certs</a></li>
+        <li><a href="#contact" class="mobile-menu-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 1 — HERO ═══ -->
+  <section id="hero" class="hero-section">
+    <div class="hero-container">
+      <h1 class="hero-name">
+        <span class="hero-highlight">Bharath Raj M</span>
+      </h1>
+      <p class="hero-tagline">
+        Computer Science Engineer · DSA Enthusiast · Mobile &amp; Web Developer
+      </p>
+
+      <!-- Animated Counters -->
+      <div class="hero-stats">
+        <div class="stat-card" data-target="2" data-suffix="+">
+          <span class="stat-number">0</span>
+          <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-card" data-target="2">
+          <span class="stat-number">0</span>
+          <span class="stat-label">Internships Completed</span>
+        </div>
+        <div class="stat-card" data-target="17">
+          <span class="stat-number">0</span>
+          <span class="stat-label">Certifications Earned</span>
+        </div>
+      </div>
+
+      <!-- Custom Animated Social Buttons -->
+      <div class="custom-button-group">
+        <div class="custom-buttons-container">
+          <!-- LinkedIn -->
+          <div class="custom-button-wrap border-glow-card" data-glow-color="40 80 80">
+            <span class="edge-light"></span>
+            <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="custom-social-button"
+              aria-label="LinkedIn">
+              <div class="custom-button-content">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                <span class="custom-button-label">LinkedIn</span>
+              </div>
+            </a>
+          </div>
+          <!-- GitHub -->
+          <div class="custom-button-wrap border-glow-card" data-glow-color="40 80 80">
+            <span class="edge-light"></span>
+            <a href="https://github.com/" target="_blank" rel="noopener" class="custom-social-button"
+              aria-label="GitHub">
+              <div class="custom-button-content">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                <span class="custom-button-label">GitHub</span>
+              </div>
+            </a>
+          </div>
+          <!-- Email -->
+          <div class="custom-button-wrap border-glow-card" data-glow-color="40 80 80">
+            <span class="edge-light"></span>
+            <a href="mailto:mbharathrajcw@gmail.com" class="custom-social-button" aria-label="Email">
+              <div class="custom-button-content">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+                </svg>
+                <span class="custom-button-label">Email</span>
+              </div>
+            </a>
+          </div>
+          <!-- LeetCode -->
+          <div class="custom-button-wrap border-glow-card" data-glow-color="40 80 80">
+            <span class="edge-light"></span>
+            <a href="https://leetcode.com/" target="_blank" rel="noopener" class="custom-social-button"
+              aria-label="LeetCode">
+              <div class="custom-button-content">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+                </svg>
+                <span class="custom-button-label">LeetCode</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hero-ctas">
+        <a href="assets/certificates/Copy of Bharath Raj M Resume 2026 updated (4).pdf" target="_blank"
+          class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
+          </svg>
+          View Resume
+        </a>
+        <button id="open-terminal-btn" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5" />
+            <line x1="12" y1="19" x2="20" y2="19" />
+          </svg>
+          Open Terminal
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TERMINAL MODAL ═══ -->
+  <div id="terminal-overlay" class="terminal-overlay">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="terminal-title">bharath@portfolio:~</span>
+        <button id="close-terminal" class="terminal-close" aria-label="Close terminal">&times;</button>
+      </div>
+      <div id="terminal-body" class="terminal-body">
+        <div class="terminal-output" id="terminal-output">
+          <div class="terminal-line"><span class="terminal-text-green">Welcome to Bharath's Portfolio Terminal
+              v1.0</span></div>
+          <div class="terminal-line"><span class="terminal-text-dim">Type <span class="terminal-text-gold">'help'</span>
+              to see available commands.</span></div>
+        </div>
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">bharath@portfolio:~$&nbsp;</span>
+          <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false"
+            autofocus />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">01.</span> About Me</h2>
+      <div class="about-grid">
+        <div class="about-text animate-on-scroll">
+          <p>Pre-final-year engineering student specializing in <strong>Computer Science</strong> with a strong
+            foundation in <strong>Data Structures &amp; Algorithms</strong> and <strong>Mobile App Development</strong>.
+          </p>
+          <p>Seeking an entry-level position to apply technical knowledge, problem-solving skills, and continuous
+            learning in a growth-oriented organization. Passionate about building efficient, scalable solutions and
+            exploring emerging technologies.</p>
+          <div class="about-details">
+            <div class="detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Chennai, Tamil Nadu</span>
+            </div>
+            <div class="detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+              </svg>
+              <span>Open to Work</span>
+            </div>
+            <div class="detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+              </svg>
+              <span>B.E. Computer Science</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-cards animate-on-scroll">
+          <div class="info-card glow-card">
+            <div class="info-card-icon">🎓</div>
+            <div class="info-card-content">
+              <h4>College</h4>
+              <p>Panimalar Engineering College</p>
+            </div>
+          </div>
+          <div class="info-card glow-card">
+            <div class="info-card-icon">📊</div>
+            <div class="info-card-content">
+              <h4>CGPA</h4>
+              <p>8.7 / 10</p>
+            </div>
+          </div>
+          <div class="info-card glow-card">
+            <div class="info-card-icon">📍</div>
+            <div class="info-card-content">
+              <h4>Location</h4>
+              <p>Chennai, Tamil Nadu</p>
+            </div>
+          </div>
+          <div class="info-card glow-card">
+            <div class="info-card-icon">📅</div>
+            <div class="info-card-content">
+              <h4>Graduation</h4>
+              <p>2027</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">02.</span> Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card glass-card animate-on-scroll">
+          <div class="project-card-header">
+            <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
+              </svg></div>
+            <div class="project-links"><a href="#" target="_blank" rel="noopener" aria-label="GitHub"><svg
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg></a></div>
+          </div>
+          <h3 class="project-title">AccuCert</h3>
+          <p class="project-desc">Mobile application developed using Kotlin that automates certificate generation and
+            enables bulk certificate creation efficiently.</p>
+          <div class="project-tech"><span class="tech-tag">Kotlin</span><span class="tech-tag">Android
+              Studio</span><span class="tech-tag">XML</span></div>
+        </div>
+        <div class="project-card glass-card animate-on-scroll">
+          <div class="project-card-header">
+            <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
+              </svg></div>
+            <div class="project-links"><a href="#" target="_blank" rel="noopener" aria-label="GitHub"><svg
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg></a></div>
+          </div>
+          <h3 class="project-title">Urban Waste Management System</h3>
+          <p class="project-desc">IoT-based system designed to monitor and optimize waste collection and disposal in
+            urban environments.</p>
+          <div class="project-tech"><span class="tech-tag">IoT</span><span class="tech-tag">Python</span><span
+              class="tech-tag">Sensors</span><span class="tech-tag">Cloud</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">03.</span> Tech Stack</h2>
+      <div class="scroll-stack-scroller">
+        <div class="scroll-stack-inner">
+          <div class="scroll-stack-card glass-card">
+            <h3 class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>Languages &amp; DSA</h3>
+            <div class="skill-badges"><span class="skill-badge">Java</span><span class="skill-badge">Python</span><span
+                class="skill-badge">C</span><span class="skill-badge">Kotlin</span></div>
+          </div>
+          <div class="scroll-stack-card glass-card">
+            <h3 class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+              </svg>Web Technologies</h3>
+            <div class="skill-badges"><span class="skill-badge">HTML</span><span class="skill-badge">CSS</span><span
+                class="skill-badge">MongoDB</span><span class="skill-badge">Express.js</span><span
+                class="skill-badge">React</span><span class="skill-badge">Node.js</span></div>
+          </div>
+          <div class="scroll-stack-card glass-card">
+            <h3 class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>Databases</h3>
+            <div class="skill-badges"><span class="skill-badge">MySQL</span><span class="skill-badge">MongoDB</span>
+            </div>
+          </div>
+          <div class="scroll-stack-card glass-card">
+            <h3 class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg>Tools &amp; Platforms</h3>
+            <div class="skill-badges"><span class="skill-badge">Git</span><span class="skill-badge">VS Code</span><span
+                class="skill-badge">MS Excel</span><span class="skill-badge">Android Studio</span></div>
+          </div>
+          <div class="scroll-stack-card glass-card">
+            <h3 class="skill-group-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>Operating Systems</h3>
+            <div class="skill-badges"><span class="skill-badge">Windows</span></div>
+          </div>
+          <div class="scroll-stack-end"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTERNSHIPS ═══ -->
+  <section id="internships" class="section internships-section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">04.</span> Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-date">Mar 2024 — Apr 2024</div>
+            <h3 class="timeline-title">Web Developer</h3>
+            <h4 class="timeline-company">Codebind Technologies</h4>
+            <p class="timeline-desc">Worked on web application development and gained hands-on experience in modern
+              frontend development.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-date">Jul 2025 — Aug 2025</div>
+            <h3 class="timeline-title">AI &amp; Cloud Intern</h3>
+            <h4 class="timeline-company">Edunet Foundation</h4>
+            <p class="timeline-desc">Learned AI fundamentals and cloud computing concepts with hands-on exposure to
+              emerging technologies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ═══ -->
+  <section id="certifications" class="section certifications-section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">05.</span> Certifications</h2>
+      <div class="certs-grid">
+        <div class="tilted-card-container animate-on-scroll" data-cert="nptel-ml">
+          <div class="tilted-card-inner">
+            <div class="tilted-card-img-wrap">
+              <div class="tilted-card-placeholder">
+                <div class="cert-icon">🏅</div>
+                <h3 class="cert-title">Intro to Machine Learning</h3>
+                <p class="cert-issuer">NPTEL — 2025</p>
+              </div>
+            </div>
+            <div class="tilted-card-overlay"><button class="btn btn-primary" style="pointer-events:auto;">View
+                Details</button></div>
+          </div>
+        </div>
+        <div class="tilted-card-container animate-on-scroll" data-cert="aicte-ai">
+          <div class="tilted-card-inner">
+            <div class="tilted-card-img-wrap">
+              <div class="tilted-card-placeholder">
+                <div class="cert-icon">🏅</div>
+                <h3 class="cert-title">AICTE Technical AI</h3>
+                <p class="cert-issuer">AI &amp; Cloud — 2025</p>
+              </div>
+            </div>
+            <div class="tilted-card-overlay"><button class="btn btn-primary" style="pointer-events:auto;">View
+                Details</button></div>
+          </div>
+        </div>
+        <div class="tilted-card-container animate-on-scroll" data-cert="apollo-training">
+          <div class="tilted-card-inner">
+            <div class="tilted-card-img-wrap">
+              <div class="tilted-card-placeholder">
+                <div class="cert-icon">🏅</div>
+                <h3 class="cert-title">Apollo Computer Training</h3>
+                <p class="cert-issuer">Apollo Education</p>
+              </div>
+            </div>
+            <div class="tilted-card-overlay"><button class="btn btn-primary" style="pointer-events:auto;">View
+                Details</button></div>
+          </div>
+        </div>
+        <div class="tilted-card-container animate-on-scroll" data-cert="codebind-internships">
+          <div class="tilted-card-inner">
+            <div class="tilted-card-img-wrap">
+              <div class="tilted-card-placeholder">
+                <div class="cert-icon">📁</div>
+                <h3 class="cert-title">Internship Archive (x5)</h3>
+                <p class="cert-issuer">Codebind Technologies</p>
+              </div>
+            </div>
+            <div class="tilted-card-overlay"><button class="btn btn-primary"
+                style="pointer-events:auto;">Browse</button></div>
+          </div>
+        </div>
+        <div class="tilted-card-container animate-on-scroll" data-cert="oracle-cloud">
+          <div class="tilted-card-inner">
+            <div class="tilted-card-img-wrap">
+              <div class="tilted-card-placeholder">
+                <div class="cert-icon">📁</div>
+                <h3 class="cert-title">Oracle Cloud OCI (x3)</h3>
+                <p class="cert-issuer">Oracle Infrastructure</p>
+              </div>
+            </div>
+            <div class="tilted-card-overlay"><button class="btn btn-primary"
+                style="pointer-events:auto;">Browse</button></div>
+          </div>
+        </div>
+        <div class="tilted-card-container animate-on-scroll" data-cert="uipath-automation">
+          <div class="tilted-card-inner">
+            <div class="tilted-card-img-wrap">
+              <div class="tilted-card-placeholder">
+                <div class="cert-icon">⚡</div>
+                <h3 class="cert-title">UiPath Associate Dev</h3>
+                <p class="cert-issuer">Automation — 2025</p>
+              </div>
+            </div>
+            <div class="tilted-card-overlay"><button class="btn btn-primary" style="pointer-events:auto;">View</button>
+            </div>
+          </div>
+        </div>
+        <div class="tilted-card-container animate-on-scroll" data-cert="ibm-skills-build">
+          <div class="tilted-card-inner">
+            <div class="tilted-card-img-wrap">
+              <div class="tilted-card-placeholder">
+                <div class="cert-icon">📁</div>
+                <h3 class="cert-title">IBM Professional (x3)</h3>
+                <p class="cert-issuer">IBM Skills Build</p>
+              </div>
+            </div>
+            <div class="tilted-card-overlay"><button class="btn btn-primary"
+                style="pointer-events:auto;">Browse</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CERT MODAL ═══
+       STRUCTURE (flex chain that makes the preview work):
+       .modal-overlay
+         .modal-content.glass-card          ← flex column, explicit height in preview-mode
+           button.modal-close               ← absolute, always visible
+           #modal-body.modal-body           ← flex:1, min-height:0, flex column
+             #cert-preview-container        ← flex column, height:100% (hidden by default)
+             #modal-main-view               ← shown for single certs
+             #modal-group-view              ← shown for collections
+  ═══ -->
+  <div id="cert-modal" class="modal-overlay">
+    <div class="modal-content glass-card">
+
+      <!-- Close button — always visible, absolutely positioned -->
+      <button id="close-modal" class="modal-close" aria-label="Close modal">&times;</button>
+
+      <!-- modal-body is a flex column that fills the modal -->
+      <div id="modal-body" class="modal-body">
+
+        <!-- ── PREVIEW VIEW ── -->
+        <div id="cert-preview-container"
+          style="display:none; flex-direction:column; width:100%; height:100%; text-align:left; overflow:hidden;">
+          <div class="preview-top-bar">
+            <div class="preview-info-text">
+              <h2 id="preview-title-large" class="preview-title-tag">Certificate Name</h2>
+              <p class="preview-issuer-tag">Issued by: <span id="preview-issuer-name"
+                  style="font-weight:700;color:#fff;">Issuer</span></p>
+            </div>
+            <button id="close-preview-btn" class="preview-back-btn" title="Back to details">&#8592;</button>
+          </div>
+
+          <div class="preview-frame-container">
+            <div id="preview-content-area" class="preview-render-area">
+              <!-- dynamically injected iframe or img -->
+            </div>
+          </div>
+
+          <div class="preview-footer-actions">
+            <button id="preview-open-full" class="btn-preview-gold">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="width:16px;height:16px;">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              Open Full
+            </button>
+            <a id="preview-download-direct" href="javascript:void(0)" class="btn-preview-dark" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="width:16px;height:16px;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download
+            </a>
+          </div>
+        </div>
+
+        <!-- ── MAIN CARD VIEW ── -->
+        <div id="modal-main-view">
+          <div class="modal-cert-icon" id="modal-icon">🏅</div>
+          <h3 id="modal-title" class="modal-title"></h3>
+          <p id="modal-issuer" class="modal-issuer"></p>
+          <p id="modal-desc" class="modal-desc"></p>
+          <div class="modal-actions">
+            <button id="modal-view-inline" class="btn btn-primary">View Certificate</button>
+            <a id="modal-download" href="javascript:void(0)" class="btn btn-secondary" download>Download</a>
+          </div>
+        </div>
+
+        <!-- ── GROUP VIEW ── -->
+        <div id="modal-group-view" style="display:none;">
+          <h3 id="modal-group-title" class="modal-title">Browse Collection</h3>
+          <div id="modal-items-grid" class="modal-items-grid"></div>
+        </div>
+
+      </div><!-- end #modal-body -->
+    </div><!-- end .modal-content -->
+  </div><!-- end #cert-modal -->
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">06.</span> Get In Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-info animate-on-scroll">
+          <p class="contact-text">I'm currently looking for internship and entry-level opportunities. Whether you have a
+            question or just want to say hi, feel free to reach out!</p>
+          <div class="contact-details">
+            <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg><a href="mailto:mbharathrajcw@gmail.com">mbharathrajcw@gmail.com</a></div>
+            <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg><a href="tel:+919043129158">+91 9043129158</a></div>
+            <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg><span>Chennai, Tamil Nadu, India</span></div>
+          </div>
+        </div>
+        <form id="contact-form" class="contact-form glass-card animate-on-scroll">
+          <div class="form-group"><label for="user-name">Name</label><input type="text" id="user-name" name="user_name"
+              placeholder="Your Name" required /></div>
+          <div class="form-group"><label for="user-email">Email</label><input type="email" id="user-email"
+              name="user_email" placeholder="your@email.com" required /></div>
+          <div class="form-group"><label for="user-message">Message</label><textarea id="user-message" name="message"
+              rows="5" placeholder="Write your message..." required></textarea></div>
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loader" style="display:none;">Sending...</span>
+          </button>
+          <div id="form-status" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="footer-logo">&lt;BRM /&gt;</a>
+          <p class="footer-tagline">Building the future, one line of code at a time.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#internships">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="footer-social-links">
+            <a href="https://linkedin.com/in/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg
+                viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg></a>
+            <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg></a>
+            <a href="https://leetcode.com/" target="_blank" rel="noopener" aria-label="LeetCode"><svg
+                viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+              </svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Bharath Raj M.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
