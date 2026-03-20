@@ -457,7 +457,7 @@
       '/home': { type: 'dir', content: ['bharath'] },
       '/home/bharath': { type: 'dir', content: ['projects.txt', 'skills.txt', 'contact.txt', 'secret'] },
       '/home/bharath/secret': { type: 'dir', content: ['diary.txt'] },
-      '/home/bharath/projects.txt': { type: 'file', content: 'Projects:\n- AccuCert (Kotlin)\n- Urban Waste Management System (IoT)' },
+      '/home/bharath/projects.txt': { type: 'file', content: 'Projects:\n- AccuCert (https://github.com/bharathrajm-2005/accucert)\n- Urban Waste Management (https://github.com/bharathrajm-2005/urban_waste_management)\n- Smart Crop Advisory (https://github.com/bharathrajm-2005/smart_crop_advisory_2)\n- Infosys Webcam Project (https://github.com/bharathrajm-2005/infosys_python_project)' },
       '/home/bharath/skills.txt': { type: 'file', content: 'Skills:\nJava, Python, C, Kotlin, HTML, CSS, MERN' },
       '/home/bharath/contact.txt': { type: 'file', content: 'Contact:\nmbharathrajcw@gmail.com\n+91 9043129158' },
       '/home/bharath/secret/diary.txt': { type: 'file', content: 'Dear diary, today I built an awesome terminal.' }
@@ -528,14 +528,28 @@
         { text: '── PROJECTS ──────────────────────────', cls: 'terminal-text-gold' },
         { text: '', cls: '' },
         { text: '▸ AccuCert', cls: 'terminal-text-cyan' },
-        { text: '  Kotlin mobile app for automated certificate', cls: 'terminal-text-white' },
-        { text: '  generation and bulk creation.', cls: 'terminal-text-white' },
+        { text: '  Kotlin mobile app for automated certificate generation.', cls: 'terminal-text-white' },
+        { text: '  URL: github.com/bharathrajm-2005/accucert', cls: 'terminal-text-green' },
         { text: '  Tech: Kotlin, Android Studio', cls: 'terminal-text-dim' },
         { text: '', cls: '' },
         { text: '▸ Urban Waste Management System', cls: 'terminal-text-cyan' },
-        { text: '  IoT-based system to monitor and optimize', cls: 'terminal-text-white' },
-        { text: '  waste collection in urban environments.', cls: 'terminal-text-white' },
+        { text: '  IoT-based monitoring for optimized waste collection.', cls: 'terminal-text-white' },
+        { text: '  URL: github.com/bharathrajm-2005/urban_waste_management', cls: 'terminal-text-green' },
         { text: '  Tech: IoT, Python, Sensors, Cloud', cls: 'terminal-text-dim' },
+        { text: '', cls: '' },
+        { text: '▸ Smart Crop Advisory', cls: 'terminal-text-cyan' },
+        { text: '  AI agricultural system for soil/env recommendations.', cls: 'terminal-text-white' },
+        { text: '  URL: github.com/bharathrajm-2005/smart_crop_advisory_2', cls: 'terminal-text-green' },
+        { text: '  Architecture: ML + Web App | Backend: Python (Flask)', cls: 'terminal-text-dim' },
+        { text: '  Performance: Data-Driven | Core: Crop Prediction', cls: 'terminal-text-dim' },
+        { text: '  Tech: Python, Machine Learning, Flask, OpenCV', cls: 'terminal-text-dim' },
+        { text: '', cls: '' },
+        { text: '▸ Infosys Webcam Project', cls: 'terminal-text-cyan' },
+        { text: '  Real-time video processing and frame handling application.', cls: 'terminal-text-white' },
+        { text: '  URL: github.com/bharathrajm-2005/infosys_python_project', cls: 'terminal-text-green' },
+        { text: '  Architecture: Python App | Core Library: OpenCV', cls: 'terminal-text-dim' },
+        { text: '  Processing: Real-Time | Interface: Flask Templates', cls: 'terminal-text-dim' },
+        { text: '  Tech: Python, OpenCV, Flask, Computer Vision', cls: 'terminal-text-dim' },
       ];
     }
     function cmdSkills() {
@@ -1053,24 +1067,52 @@
   const formStatus = document.getElementById('form-status');
   const submitBtn = document.getElementById('submit-btn');
 
+  // Updated with your EmailJS credentials
+  emailjs.init("SCq7z_Hjj5WOYCY-n");
+
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
     const btnText = submitBtn.querySelector('.btn-text');
     const btnLoader = submitBtn.querySelector('.btn-loader');
+    
+    // UI Feedback
     btnText.style.display = 'none';
     btnLoader.style.display = 'inline';
     submitBtn.disabled = true;
 
-    // Demo mode — replace with real emailjs.sendForm() when ready
-    setTimeout(() => {
-      formStatus.textContent = '✅ Message sent successfully!';
-      formStatus.className = 'form-status success';
-      contactForm.reset();
-      btnText.style.display = 'inline';
-      btnLoader.style.display = 'none';
-      submitBtn.disabled = false;
-      setTimeout(() => { formStatus.textContent = ''; formStatus.className = 'form-status'; }, 5000);
-    }, 1500);
+    // Get field values
+    const name = document.getElementById("user-name").value.trim();
+    const email = document.getElementById("user-email").value.trim();
+    const message = document.getElementById("user-message").value.trim();
+
+    // Debug Log
+    console.log('Sending EmailJS with:', { name, email, message });
+
+    // Use EmailJS to send — mapping values manually to your template variables {{name}}, {{email}}, {{message}}
+    emailjs.send('service_1fdnlrj', 'template_27y1cdm', {
+      name: name,
+      email: email,
+      message: message
+    })
+      .then(() => {
+        formStatus.textContent = '✅ Message sent successfully!';
+        formStatus.className = 'form-status success';
+        contactForm.reset();
+      })
+      .catch((err) => {
+        console.error('EmailJS Error:', err);
+        formStatus.textContent = '❌ Failed to send. Please check your credentials or network.';
+        formStatus.className = 'form-status error';
+      })
+      .finally(() => {
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+        submitBtn.disabled = false;
+        setTimeout(() => { 
+          formStatus.textContent = ''; 
+          formStatus.className = 'form-status'; 
+        }, 6000);
+      });
   });
 
   /* ════════════════════════════════════════════
@@ -1184,6 +1226,191 @@
 
     let rsTimer;
     window.addEventListener('resize', () => { clearTimeout(rsTimer); rsTimer = setTimeout(() => { updateMetrics(); updateTransforms(); }, 200); });
+  })();
+
+  /* 🚀 ROCKET ENGINE (Extracted) */
+  (function initRocketSystem() {
+    const launcher = document.getElementById('rocket-launcher');
+    if (!launcher) return;
+
+    const canvas = document.getElementById('rocket-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const flash = document.getElementById('screen-flash');
+    const warp = document.getElementById('warp-overlay');
+    const badge = document.getElementById('rl-badge');
+    const devBanner = document.getElementById('dev-banner');
+
+    let width, height;
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    let rocket = null;
+    let particles = [];
+    let currentTarget = null;
+    let t = 0;
+    let animId = null;
+
+    // Bezier curve points
+    function bezier(t, p0, p1, p2, p3) {
+      const mt = 1 - t;
+      return {
+        x: mt*mt*mt*p0.x + 3*mt*mt*t*p1.x + 3*mt*t*t*p2.x + t*t*t*p3.x,
+        y: mt*mt*mt*p0.y + 3*mt*mt*t*p1.y + 3*mt*t*t*p2.y + t*t*t*p3.y,
+      };
+    }
+
+    function createParticle(x, y) {
+      return {
+        x, y,
+        vx: (Math.random() - 0.5) * 5,
+        vy: (Math.random() - 0.5) * 5,
+        alpha: 1,
+        life: 0.95 + Math.random() * 0.04,
+        size: 2 + Math.random() * 3,
+        color: Math.random() > 0.5 ? '#ff8c00' : '#ffd700'
+      };
+    }
+
+    function launch() {
+      if (rocket) return;
+
+      // Find possible target elements
+      const targetSelectors = ['button', 'a.btn', 'a.pill', '.custom-social-button', '.tilted-card-container', '.stat-card'];
+      const allTargets = Array.from(document.querySelectorAll(targetSelectors.join(',')))
+        .filter(el => {
+          const r = el.getBoundingClientRect();
+          return el.id !== 'rocket-launcher' && 
+                 r.width > 0 && r.height > 0 &&
+                 el.offsetParent !== null;
+        });
+
+      currentTarget = allTargets[Math.floor(Math.random() * allTargets.length)] || document.getElementById('open-terminal-btn');
+      const targetRect = currentTarget.getBoundingClientRect();
+      const launcherRect = launcher.getBoundingClientRect();
+
+      rocket = {
+        p0: { x: launcherRect.left + launcherRect.width / 2, y: launcherRect.top + launcherRect.height / 2 },
+        p1: { x: width * Math.random(), y: height * Math.random() },
+        p2: { x: width * Math.random(), y: height * Math.random() },
+        p3: { x: targetRect.left + targetRect.width / 2, y: targetRect.top + targetRect.height / 2 }
+      };
+      
+      t = 0;
+      if (warp) warp.style.opacity = '1';
+      animate();
+    }
+
+    function drawRocket(x, y, angle) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(angle);
+      
+      // Flame
+      ctx.fillStyle = '#ff8c00';
+      ctx.beginPath();
+      ctx.moveTo(-10, 0);
+      ctx.lineTo(-25, -5);
+      ctx.lineTo(-20, 0);
+      ctx.lineTo(-25, 5);
+      ctx.closePath();
+      ctx.fill();
+      
+      // Body
+      ctx.fillStyle = 'white';
+      ctx.beginPath();
+      ctx.moveTo(20, 0);
+      ctx.lineTo(-10, -8);
+      ctx.lineTo(-10, 8);
+      ctx.closePath();
+      ctx.fill();
+      
+      // Fins
+      ctx.fillStyle = '#ff3333';
+      ctx.beginPath();
+      ctx.moveTo(-5, -6);
+      ctx.lineTo(-15, -12);
+      ctx.lineTo(-10, 0);
+      ctx.closePath();
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(-5, 6);
+      ctx.lineTo(-15, 12);
+      ctx.lineTo(-10, 0);
+      ctx.closePath();
+      ctx.fill();
+      
+      ctx.restore();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      const oldPos = bezier(t, rocket.p0, rocket.p1, rocket.p2, rocket.p3);
+      t += 0.012; // Speed boost
+      const newPos = bezier(t, rocket.p0, rocket.p1, rocket.p2, rocket.p3);
+      
+      const angle = Math.atan2(newPos.y - oldPos.y, newPos.x - oldPos.x);
+
+      // Trail
+      if (Math.random() > 0.2) particles.push(createParticle(newPos.x, newPos.y));
+      
+      particles.forEach((p, i) => {
+        p.x += p.vx; p.y += p.vy;
+        p.alpha *= p.life;
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        if (p.alpha < 0.01) particles.splice(i, 1);
+      });
+      ctx.globalAlpha = 1;
+
+      drawRocket(newPos.x, newPos.y, angle);
+
+      if (t < 1) {
+        animId = requestAnimationFrame(animate);
+      } else {
+        // Impact
+        ctx.clearRect(0, 0, width, height);
+
+        if (flash) {
+          flash.style.opacity = '1';
+          setTimeout(() => flash.style.opacity = '0', 200);
+        }
+        if (warp) warp.style.opacity = '0';
+        
+        // TRIGGER TARGET CLICK
+        if (currentTarget) {
+          currentTarget.click();
+          // Visual hit effect
+          currentTarget.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+          currentTarget.style.transform = 'scale(0.9)';
+          setTimeout(() => currentTarget.style.transform = '', 200);
+        }
+
+        rocket = null;
+        particles = [];
+      }
+    }
+
+    launcher.addEventListener('click', launch);
+
+    // Initial Badge (randomly changes for fun)
+    if (badge) {
+      const setBadge = () => {
+        badge.textContent = Math.floor(Math.random() * 5) + 1;
+        badge.style.opacity = '1';
+      };
+      setTimeout(setBadge, 2000);
+      setInterval(setBadge, 12000);
+    }
   })();
 
 })();

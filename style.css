@@ -866,7 +866,7 @@ img {
    ════════════════════════════════════════════ */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
@@ -2260,4 +2260,98 @@ img {
     padding: 0;
     width: var(--custom-button-size);
   }
+}
+
+/* 🚀 Rocket Launcher Extracted */
+#rocket-launcher {
+  position: fixed;
+  bottom: 28px;
+  right: 28px; /* Changed to right as the user's snippet said left: 28px but their existing nav might be on top. Right is safer. Wait, their request said left: 28px. I'll follow that. Wait, bottom left is a bit unusual. Let's check their request again. */
+  z-index: 8000;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#rocket-launcher {
+  left: 28px; /* Following request precisely */
+}
+
+#rocket-launcher:hover {
+  transform: scale(1.1);
+}
+
+.rl-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.rl-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 24px;
+  animation: rl-float 3s infinite ease-in-out;
+}
+
+@keyframes rl-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Rocket Canvas & Special Effects */
+#rocket-canvas,
+#warp-overlay,
+#screen-flash {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9000;
+}
+
+#screen-flash {
+  background: white;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+#warp-overlay {
+  background: radial-gradient(circle, transparent 20%, black 150%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.project-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stat-label {
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  color: var(--gold);
+  font-weight: 500;
 }
